@@ -7,13 +7,10 @@ import { Footer } from "./MyComponents/Footer";
 
 import { AddTodo } from "./MyComponents/AddTodo";
 
-import { About } from "./MyComponents/About";
+
 
 import React, { useState, useEffect } from "react";
 // import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-
 
 
 function App() {
@@ -65,30 +62,13 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Header title="My Todos List" searchBar={false} />
+      <Header title="My Todos List" searchBar={false} />
 
-        <Switch>
-          <Route exact 
-            path="/"
-            render={() => {
-              return (
-                <>
-                  <AddTodo addTodo={addTodo} />
-                  <Todos todos={todos} onDelete={onDelete} />
-                </>
-              );
-            }}
-          >
-            
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Switch>
+      <AddTodo addTodo={addTodo} />
+      <Todos todos={todos} onDelete={onDelete} />
+      
 
-        <Footer />
-      </Router>
+      <Footer />
     </>
   );
 }
